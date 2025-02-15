@@ -1,0 +1,144 @@
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Verification</title>
+    <style type="text/css">
+      body {
+        font-family: "Open Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #9459ff;
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .email-container {
+        max-width: 600px;
+        width: 100%;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        padding: 20px;
+      }
+      .email-header {
+        text-align: center;
+        padding: 20px;
+        color: #9459ff;
+      }
+      .email-header svg {
+        margin-bottom: 10px;
+      }
+      .email-header h1 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .email-body {
+        padding: 20px;
+      }
+      .email-body p {
+        margin: 0 0 15px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #555;
+      }
+      .code {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        margin: 20px 0;
+        padding: 10px;
+        background-color: #f8f9fc;
+        border: 1px dashed #9459ff;
+        border-radius: 8px;
+        color: #333;
+      }
+      .email-body ul {
+        padding-left: 20px;
+        margin: 0 0 20px;
+        color: #555;
+      }
+      .email-body ul li {
+        margin-bottom: 10px;
+      }
+      .btn-golden {
+        display: inline-block;
+        background-color: #9459ff;
+        color: #fff;
+        text-decoration: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        text-align: center;
+        margin: 20px auto;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .btn-golden:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .email-footer {
+        padding: 15px;
+        text-align: center;
+        font-size: 12px;
+        color: #888;
+        background-color: #f8f9fc;
+        border-top: 1px solid #eaeaea;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <!-- Header -->
+      <div class="email-header">
+        <svg
+          width="40px"
+          height="44.5px"
+          viewBox="0 0 431 445"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M231.279 377.695C222.872 396.577 200.75 405.069 181.868 396.662C162.986 388.255 154.494 366.133 162.901 347.251L197.939 362.837L231.279 377.695Z"
+            fill="#A16CFF"
+          />
+          <path
+            d="M286.045 64.2998C273.457 58.6953 258.709 64.3565 253.104 76.9444L252.089 79.2241C195.37 66.6232 135.742 95.1812 111.194 150.315L77.9549 212.974C71.8586 224.466 63.4328 234.56 53.2156 242.613L24.2323 265.454C20.5458 268.359 21.2682 274.142 25.5561 276.051L302.984 399.57C307.272 401.479 312.052 398.146 311.745 393.463L309.326 356.64C308.473 343.659 310.337 330.643 314.798 318.423L339.12 251.795C363.668 196.661 344.992 133.239 297.675 99.52L298.689 97.2403C304.294 84.6523 298.633 69.9044 286.045 64.2998Z"
+            fill="#A16CFF"
+          />
+        </svg>
+        <h1>Crucial Reminder</h1>
+      </div>
+
+      <!-- Body -->
+      <div class="email-body">
+        <p>Dear <%= email %>,</p>
+        <p>
+          Thank you for registering with Crucial Reminders! To complete your
+          registration, please verify your email address using the code below:
+        </p>
+        <p class="code"> <%= otp %></p>
+        <p>
+          This code is valid for the next <strong>3 minutes</strong>.
+          Enter this code in the verification field on the registration page to
+          activate your account.
+        </p>
+        <p>
+          If you did not initiate this registration, please ignore this email or
+          contact our support team for assistance.
+        </p>
+        <p>We’re excited to have you join our community!</p>
+        <p>Best regards,<br />Crucial Reminders Team</p>
+      </div>
+
+      <!-- Footer -->
+      <div class="email-footer">
+        &copy; 2024 Crucial Reminders. All Rights Reserved.
+      </div>
+    </div>
+  </body>
+</html>
