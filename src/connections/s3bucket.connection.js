@@ -1,11 +1,12 @@
 const { S3Client, ListBucketsCommand } = require("@aws-sdk/client-s3");
+const logger = require("../logger/logger");
 const {
   AWS_ACCESS_KEY_ID,
   AWS_SECRET_ACCESS_KEY,
   AWS_REGION,
 } = require("../config/dotenv.config");
-const logger = require("../logger/logger");
 
+// ✅ Create S3 Client
 const s3Client = new S3Client({
   region: AWS_REGION,
   credentials: {
@@ -14,13 +15,24 @@ const s3Client = new S3Client({
   },
 });
 
+// ✅ Function to Verify S3 Bucket Connection
 const s3BucketConnection = async () => {
   try {
     const command = new ListBucketsCommand({});
     const result = await s3Client.send(command);
-    logger.info(`S3 Buckets: ${JSON.stringify(result.Buckets)}`);
+
+    if (result.Buckets) {
+      logger.info(
+        `✅ S3 Connection Successful: Found ${result.Buckets.length} Buckets.`
+      );
+      return true;
+    } else {
+      logger.error("❌ S3 Connection Failed: No Buckets Found.");
+      return false;
+    }
   } catch (error) {
-    logger.error(`Error connecting to S3: ${error.message}`);
+    logger.error(`❌ Error connecting to S3: ${error.message}`);
+    return false;
   }
 };
 
